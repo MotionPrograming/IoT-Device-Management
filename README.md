@@ -2,7 +2,9 @@
 # 🌐 Blockchain-Based IoT Device Management
 
 ⚙️ **Project Status:** Active Development
+
 👨‍💻 **Developer:** MotionProgramming
+
 🎯 **Architecture:** Go Backend + Blockchain + IoT Device Integration
 
 ---
