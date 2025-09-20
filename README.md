@@ -184,8 +184,11 @@ IoT Device → TLS/MQTT → Go Load Balancer → Smart Contract Verification
 ## 📈 Roadmap
 
 **Phase 1 (0-6 months):** Core services, blockchain setup, device identity, MQTT integration, basic dashboard
+
 **Phase 2 (6-12 months):** ML predictive analytics, edge computing, advanced security, mobile apps
+
 **Phase 3 (12-18 months):** Multi-tenant architecture, global deployment, advanced analytics, integration hub
+
 **Phase 4 (18+ months):** AI automation, quantum-safe security, digital twins, blockchain interoperability, sustainability metrics
 
 ---
