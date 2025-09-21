@@ -5,7 +5,9 @@
 [![License](https://img.shields.io/badge/License-Educational-lightgrey)](LICENSE)
 
 📡 **Status:** Active Development
+
 👨‍💻 **Developer:** Md Abdullah Rajeeb (MotionProgramming)
+
 🏗️ **Architecture:** Native Go Backend + MySQL Database + React.js Frontend + Ethereum PoA Blockchain
 
 ---
