@@ -244,4 +244,3 @@ npm start
 **Summary:** BIoT-DM is a **high-security, blockchain-enabled IoT device management platform** built with MySQL and native Go, designed for industrial-grade performance, auditability, and real-time control.
 
 ---
-Do you want me to do that next?
