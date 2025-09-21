@@ -1,207 +1,263 @@
-# 🌐 Blockchain-Based IoT Device Management System (BIoT-DM)
+# 🛡️ BIoT-DM: Blockchain-Based IoT Device Management System
 
-⚙️ **Project Status:** Active Development
+[![Go Version](https://img.shields.io/badge/Go-1.22+-00ADD8)](https://golang.org/)
+[![React Version](https://img.shields.io/badge/React-18+-61DAFB)](https://reactjs.org/)
+[![License](https://img.shields.io/badge/License-Educational-lightgrey)](LICENSE)
 
+📡 **Status:** Active Development
 👨‍💻 **Developer:** Md Abdullah Rajeeb (MotionProgramming)
-
-🎯 **Architecture:** pure Go Backend + Private Blockchain + Modern Frontend + Standard SQL
+🏗️ **Architecture:** Native Go Backend + MySQL Database + React.js Frontend + Ethereum PoA Blockchain
 
 ---
 
-## 📋  Project Overview
+## 📘 Project Overview
 
-**BIoT-DM** is a **high-performance IoT management platform** that combines blockchain technology with **portable SQL databases** (MySQL, MariaDB, Oracle, SQL Server, SQLite). It ensures **security, trust, and scalability** across tens of thousands of IoT devices without relying on non-standard database engines.
+**BIoT-DM** is a **high-security, enterprise-grade IoT device management platform** built for:
 
-The system addresses major IoT challenges:
+* Smart cities, industrial IoT, and critical IIoT environments
+* Blockchain-based device identity verification and zero-trust security
+* Real-time device telemetry monitoring via WebSocket/MQTT
+* Immutable audit logging for operational and regulatory compliance
 
-* **Device identity spoofing** → blockchain-backed identities
-* **Unauthorized access & tampering** → TLS/mTLS encryption + blockchain verification
-* **Data integrity & auditability** → SQL-backed telemetry + immutable blockchain hashes
-
-Key improvements for performance:
-
-* **Batch telemetry writes** to SQL for high-frequency devices
-* **Time-based partitioning** for telemetry and alert tables
-* **In-memory caching inside Go backend** (lightweight maps) for frequently accessed metadata
-* **Async blockchain anchoring** for non-critical telemetry
-* **Optimized Go goroutines & worker pools** for concurrent devices
+> Built from scratch for **performance, transparency, and full control**. Minimal dependencies and fully extensible.
 
 ---
 
 ## 🎯 Core Objectives
 
-### 🔒 Security & Trust
+**Security & Compliance**
 
-* Blockchain-backed **device identity verification**
-* End-to-end TLS/mTLS encryption
-* Immutable **audit trails** anchored to blockchain + SQL logs
-* Role-based access control (Admin, Operator, Viewer)
+* Blockchain-based device identity and immutable logs
+* JWT authentication for all API endpoints
+* Role-based access control (Admin, Developer, Auditor, Device)
 
-### ⚡ Performance & Scalability
+**Performance & Reliability**
 
-* Support **50,000+ devices** concurrently
-* High-frequency telemetry ingestion with **goroutines & worker pools**
-* Sub-second response for device commands
-* SQL optimization via **batch inserts, indexing, and partitioning**
+* High-performance Go backend with concurrent request handling
+* Sub-100ms response times for device queries and telemetry
+* Scalable architecture with zero-downtime deployments
 
-### 🤖 Device Management
+**User Experience**
 
-* Secure device onboarding with blockchain keys
-* Real-time telemetry tracking & anomaly detection
-* Remote commands with execution tracking
-* Efficient firmware validation and distribution
+* Real-time dashboards for device monitoring
+* Multi-device support (web, tablet, desktop)
+* Interactive analytics and reporting
 
 ---
 
 ## 🛠️ Technology Stack
 
-### Backend (Native Go)
-
-* Pure Go (`net/http`, `crypto/tls`)
-* Protocols: MQTT 5.0, HTTP, CoAP
-* Authentication: JWT with role-based policies
-* Real-time: WebSocket for device alerts & dashboards
-* Performance: Worker pools, buffer reuse, lightweight in-memory caching
-
-### Blockchain Integration
-
-* Private Ethereum/Hyperledger network
-* Smart contracts for **device registration & access policies**
-* Async anchoring of telemetry data for high throughput
-
-### Database Layer (SQL Standard)
-
-* Compatible with MySQL, MariaDB, Oracle, SQL Server, SQLite
-* Normalized tables for telemetry, commands, alerts, and audit logs
-* Partitioning & indexing for high-speed queries
-* Batch inserts for telemetry and commands to reduce write overhead
-
-### Frontend (Modern Dashboard)
-
-* React.js + Tailwind for responsive UI
-* Real-time telemetry visualization with Chart.js/Recharts
-* Device health monitoring, commands, and alert center
-* Administrative controls and audit reports
+| Layer              | Technology Stack                                      |
+| ------------------ | ----------------------------------------------------- |
+| Backend Language   | Go 1.22+ (Standard Library, no frameworks)            |
+| HTTP Routing       | `net/http`, `http.ServeMux`                           |
+| Authentication     | JWT (HS256) with SHA-256 password hashing             |
+| Database           | MySQL (ACID-compliant, optimized queries)             |
+| Blockchain         | Ethereum PoA (private chain)                          |
+| Real-Time Comm     | MQTT (IoT devices), WebSocket (dashboard) TLS-secured |
+| Frontend UI        | React.js 18+                                          |
+| Data Visualization | Chart.js / D3.js                                      |
+| API Documentation  | Swagger/OpenAPI                                       |
+| DevOps             | Docker & Docker Compose, GitHub Actions CI/CD         |
+| Security           | HTTPS/TLS, Input validation, Rate limiting, RBAC      |
 
 ---
 
 ## ✨ Core Features & Capabilities
 
-* Blockchain + SQL device authentication
-* Multi-role access control
-* Device registry with blockchain-linked identity
-* Batch telemetry ingestion & real-time dashboards
-* Remote command execution
-* Threshold-based alerts & notifications
-* Immutable audit trail anchored in blockchain
+### 🔐 Authentication & Security
+
+* Multi-layer JWT authentication
+* Two-Factor Authentication (2FA) using TOTP
+* Role-based access control (Admin, Developer, Auditor, Device)
+* Session management with auto-expiration and concurrency control
+
+### 💻 Device Management
+
+* Device registration, activation, suspension, decommission
+* Firmware versioning with **on-chain hash verification**
+* Real-time telemetry ingestion & visualization
+* Device status monitoring and alerting
+
+### 💸 Transaction & Command Engine
+
+* Send commands to devices securely and atomically
+* Filter commands and telemetry by device, type, or time
+* Audit logs with IP tracking, timestamps, and blockchain verification
+
+### 📊 Analytics & Dashboard
+
+* Real-time telemetry visualization
+* Categorized analytics for device types and regions
+* Exportable CSV/PDF reports
+* Admin dashboards with system health and user activity metrics
+
+### ⚡ Real-Time Notifications
+
+* WebSocket-powered instant alerts
+* System-wide broadcasts for maintenance or security events
+* Read/unread notification tracking
+
+### ⏰ Automated Operations
+
+* Scheduled commands for devices
+* Automated firmware updates and blockchain verification
+* Compliance reporting for regulatory purposes
 
 ---
 
-## 🏗️ Optimized System Architecture
+## 🏗️ System Architecture
 
-**Request Flow (High-Performance)**
+**Request Flow**
 
 ```
-IoT Device → MQTT/HTTP → Go Backend Worker Pool → SQL Batch Inserts → Blockchain Anchoring (Async) → Dashboard/API
+Client → Go Router → Auth Middleware → Business Logic → MySQL Database → WebSocket → Response
 ```
 
-**SQL Optimization Features**
+**Database Design Philosophy**
 
-* Batch inserts for telemetry, commands, and alerts
-* Partition telemetry & alert tables by time
-* Indexed columns for frequent queries `(device_id, timestamp)`
-* Lightweight in-memory cache for device metadata
+* Normalized relational design optimized for device & telemetry data
+* ACID-compliant transactions ensuring consistency and reliability
+* Audit logs stored immutably for security and traceability
+
+**Security Implementation**
+
+* Input validation at all API endpoints
+* SQL injection prevention via prepared statements and ORM protections
+* Rate limiting to prevent abuse
+* TLS encryption for transport
 
 ---
 
 ## 📊 Database Schema Overview
 
-* **Devices:** `device_id, blockchain_id, type, status, created_at`
-* **Telemetry:** `telemetry_id, device_id, sensor_type, value, timestamp`
-* **DeviceCommands:** `command_id, device_id, type, payload, status, executed_at`
-* **Alerts:** `alert_id, device_id, type, value, created_at`
-* **BlockchainTx:** `tx_id, device_id, tx_hash, status, created_at`
-* **AuditLogs:** `log_id, device_id, action, details, blockchain_hash, created_at`
+**Core Tables**
+
+* `users`: user\_id, username, email, password\_hash, role, 2fa\_enabled, created\_at
+* `devices`: device\_id, public\_key, firmware\_version, status, registered\_at
+* `telemetry`: id, device\_id, data, timestamp
+* `commands`: command\_id, device\_id, payload, status, executed\_at
+* `notifications`: notification\_id, user\_id, message, is\_read, created\_at
+* `audit_logs`: log\_id, user\_id, action, details, ip\_address, timestamp
 
 ---
 
-## 🚀 Development Workflow
+## 🔌 API Layer
 
-* API-first approach with REST + OpenAPI/Swagger
-* Batch processing for telemetry and commands
-* Async blockchain verification for non-critical telemetry
-* WebSocket hub pattern for real-time notifications
-* Docker-based deployment with horizontal scaling
+* RESTful endpoints with modular architecture
+* JWT authentication + Role-based access control
+* Swagger/OpenAPI spec for development and testing
+
+**Sample Endpoint:**
+
+```http
+POST /api/devices/register
+Headers: Authorization: Bearer <JWT>
+Body: {
+  "device_id": "iot-001",
+  "public_key": "0xABC..."
+}
+```
 
 ---
 
-## 🎯 Expected Outcomes
+## 🎛️ Frontend (React.js)
 
-### Technical
+**Tech Stack**: React 18+, Context API, React Router, Chart.js / D3.js
 
-* Scalable IoT platform for **50,000+ devices**
-* Sub-second telemetry processing & command response
-* Blockchain-backed trust with SQL reliability
-* High-frequency telemetry, alerts, and analytics without additional DB engines
+**Features**:
 
-### Business Value
+* Admin dashboard for device management
+* Telemetry charts, device mapping
+* Export logs & reports (CSV/PDF)
 
-* Trusted IoT management for **smart cities, healthcare, industrial & energy sectors**
-* Future-proof architecture with **SQL portability**
-* Regulatory compliance with blockchain-backed audit logs
-* Enterprise-ready dashboards and actionable analytics
+**Frontend Structure**:
+
+```
+frontend/
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── services/
+│   ├── utils/
+│   ├── App.js
+│   ├── index.js
+│   └── styles.css
+```
 
 ---
 
 ## 👥 User Roles & Permissions
 
-### 🔧 Administrator
-
-* Full control over devices, commands, and policies
-* Access to blockchain + SQL audit logs
-* Configure alerts, thresholds, and firmware distribution
-
-### 👤 Operator
-
-* Monitor devices & telemetry
-* Send approved commands
-* Receive and acknowledge alerts
-
-### 📋 Auditor
-
-* Read-only access to audit logs and compliance reports
-* Verify blockchain transactions
-* Historical telemetry analysis
+| Role            | Permissions                                     |
+| --------------- | ----------------------------------------------- |
+| 🔧 Admin        | Full CRUD on devices, commands, telemetry, logs |
+| 🧑‍💻 Developer | Test devices, view telemetry                    |
+| 📡 Device       | Telemetry reporting, status updates             |
+| 🔍 Auditor      | Read-only logs, blockchain records, telemetry   |
 
 ---
 
-## 📈 Future Roadmap
+## 📈 Roadmap
 
-**Phase 1: Core IoT Management (Current)**
-✅ Blockchain-based device registration
-✅ Real-time telemetry ingestion
-✅ Remote commands + alert system
-
-**Phase 2: Advanced Features (Planned)**
-🔄 AI-based anomaly detection
-🔄 Mobile app for operators & admins
-🔄 Integration with 3rd-party IoT analytics platforms
-
-**Phase 3: Enterprise Features (Future)**
-⏳ Multi-blockchain support (Ethereum, Hyperledger, Cosmos)
-⏳ Multi-tenant deployments for enterprises
-⏳ AI-driven predictive maintenance for IoT devices
+| Phase      | Goals                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------- |
+| ✅ Phase 1  | Core MVP: Device registration, command push, React admin panel, WebSocket telemetry         |
+| 🔄 Phase 2 | Smart Control: Smart contract policy enforcement, scheduled firmware rollouts, auto-suspend |
+| 🚀 Phase 3 | Edge Intelligence: Anomaly detection, blockchain federation, ML integration                 |
 
 ---
 
-## 📄 License & Usage
+## 🚀 Quick Start Guide
 
-* 🔓 **Educational Use Only:** Free for personal learning, academic, and research purposes
-* 💼 **Commercial Use:** Requires prior permission and paid licensing
-* 🔐 **Security Disclaimer:** Project not formally security-audited; not recommended for production in critical systems without review
-* 🚫 **Unauthorized Usage:** Redistribution or commercial deployment without permission is prohibited
+### Backend (Go)
+
+```bash
+git clone https://github.com/MotionProgramming/BIoT-DM.git
+cd BIoT-DM/backend
+go mod tidy
+cp .env.example .env
+# Configure MySQL credentials in .env
+go run main.go
+```
+
+### Frontend (React.js)
+
+```bash
+cd ../frontend
+npm install
+npm start
+```
+
+**Access:**
+
+* API: `http://localhost:5000/api`
+* UI: `http://localhost:3000`
+
+**Prerequisites:**
+
+* Go 1.22+
+* Node.js 18+
+* MySQL
+* Ethereum PoA blockchain
+* Git
 
 ---
 
-✨ Developed with ❤️ by MotionProgramming — *Building the Future of IoT with Blockchain & Go*
+## 🔒 License & Usage
+
+* **Educational Use Only:** Free for personal learning, study, and non-commercial academic purposes.
+* **Commercial Use:** License required for production or commercial deployment. Contact the developer.
+* **Security Disclaimer:** Not recommended for production without security audit.
+
+---
+
+## 👨‍💻 Developed By
+
+**Md Abdullah Rajeeb**
+💻 GitHub: [MotionProgramming](https://github.com/MotionProgramming)
+📧 [contact@motionprogramming.dev](mailto:contact@motionprogramming.dev)
+
+> *BIoT-DM: High-Security Blockchain IoT Device Management with MySQL & Native Go.*
 
